@@ -2,79 +2,78 @@ import React from 'react'
 import SummaryControls from './SummaryControls'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
 
 import { networkElements } from '../api/data'
-import { operationTypes } from '../common/commonData';
+import { operationTypes } from '../common/commonData'
 
 const useStyles = makeStyles((theme) => ({
-    summary: {
-        padding: theme.spacing(2),
-        flex: 1,
-    },
-    tableContainer: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-    },
-    sectionHeader: {
-        marginBottom: theme.spacing(2),
-        borderBottom: `1px solid ${theme.palette.grey[400]}`
-    }
-}));
+  summary: {
+    padding: theme.spacing(2),
+    flex: 1
+  },
+  tableContainer: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2)
+  },
+  sectionHeader: {
+    marginBottom: theme.spacing(2),
+    borderBottom: `1px solid ${theme.palette.grey[400]}`
+  }
+}))
 
-function SummaryStep({selectedOperations, selectedElements, handleCancel, handleBack, handleSchedule}) {
-    const classes = useStyles()
-    const selectedNetworkElementsData = networkElements.filter((el) => selectedElements.includes(el.id)) 
+function SummaryStep ({ selectedOperations, selectedElements, handleCancel, handleBack, handleSchedule }) {
+  const classes = useStyles()
+  const selectedNetworkElementsData = networkElements.filter((el) => selectedElements.includes(el.id))
 
-    return (
-        <>
-        <div className={classes.summary}>
-            <Typography variant='h5' className={classes.sectionHeader}>
-                Network Elements
-            </Typography>
+  return (
+    <>
+      <div className={classes.summary}>
+        <Typography variant='h5' className={classes.sectionHeader}>
+          Network Elements
+        </Typography>
 
-<TableContainer component={Paper} className={classes.tableContainer}>
-                <Table aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>IP Address</TableCell>
-                            <TableCell>NE Name</TableCell>
-                            <TableCell>Technology</TableCell>
-                            <TableCell>SW Version</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {selectedNetworkElementsData.map((row) => (
-                            <TableRow key={row.id}>
-                                <TableCell component="th" scope="row">
-                                    {row.ip}
-                                </TableCell>
-                                <TableCell align="left">{row.name}</TableCell>
-                                <TableCell align="left">{row.type}</TableCell>
-                                <TableCell align="left">{row.swVersion}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+        <TableContainer component={Paper} className={classes.tableContainer}>
+          <Table aria-label='simple table'>
+            <TableHead>
+              <TableRow>
+                <TableCell>IP Address</TableCell>
+                <TableCell>NE Name</TableCell>
+                <TableCell>Technology</TableCell>
+                <TableCell>SW Version</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {selectedNetworkElementsData.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell component='th' scope='row'>
+                    {row.ip}
+                  </TableCell>
+                  <TableCell align='left'>{row.name}</TableCell>
+                  <TableCell align='left'>{row.type}</TableCell>
+                  <TableCell align='left'>{row.swVersion}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-
-            <Typography variant='h5' className={classes.sectionHeader}>
-                Operation Type
-            </Typography>
-            <Typography variant='h7'>
-                {selectedOperations.map(operation => <>{operationTypes[operation].label}</>)}
-            </Typography>
-        </div>
-        <SummaryControls handleBack={handleBack} handleCancel={handleCancel} handleSchedule={handleSchedule} />
-        </>
-    )
+        <Typography variant='h5' className={classes.sectionHeader}>
+          Operation Type
+        </Typography>
+        <Typography variant='h7'>
+          {selectedOperations.map(operation => <React.Fragment key={operation}>{operationTypes[operation].label}</React.Fragment>)}
+        </Typography>
+      </div>
+      <SummaryControls handleBack={handleBack} handleCancel={handleCancel} handleSchedule={handleSchedule} />
+    </>
+  )
 }
 
 export default SummaryStep
