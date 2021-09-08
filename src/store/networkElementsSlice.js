@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { networkElements } from '../api/data'
+import { networkElements } from '../api/networkElements'
 
 export const networkElementsSlice = createSlice({
   name: 'networkElements',

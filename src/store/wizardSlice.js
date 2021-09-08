@@ -24,9 +24,8 @@ export const wizardSlice = createSlice({
       state.selectedOperations = []
       state.activeStep = 0
     },
-    schedule: (state) => {
-      state.toast.open = true
-      state.toast.success = true
+    schedule: () => {
+      // watched by watchSchedule saga
     },
     forward: (state) => {
       state.activeStep = state.activeStep + 1
@@ -36,10 +35,13 @@ export const wizardSlice = createSlice({
     },
     setToastOpen: (state, action) => {
       state.toast.open = action.payload
+    },
+    setToast: (state, action) => {
+      state.toast = action.payload
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { setSelectedNetworkElements, setSelectedOperations, cancel, forward, back, schedule, setToastOpen } = wizardSlice.actions
+export const { setSelectedNetworkElements, setSelectedOperations, cancel, forward, back, schedule, setToastOpen, setToast } = wizardSlice.actions
 export default wizardSlice.reducer
