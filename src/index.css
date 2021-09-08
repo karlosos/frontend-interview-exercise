@@ -17,3 +17,7 @@ html, body {
   padding:0; 
   height:100%; 
 }
+
+.MuiTableCell-head {
+    font-weight: 600 !important;
+}

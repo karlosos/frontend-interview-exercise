@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import NetworkElementStep from './components/NetworkElementStep';
 import OperationTypeStep from './components/OperationTypeStep';
+import SummaryStep from './components/SummaryStep';
+import ScheduleToast from './components/ScheduleToast';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +31,7 @@ function Wizard() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [selectedElements, setSelectedElements] = React.useState([]);
   const [selectedOperations, setSelectedOperations] = useState([])
+  const [scheduleToastOpen, setScheduleToastOpen] = useState(false)
 
   const handleContinue = () => {
     console.log('Handle Continue')
@@ -45,6 +48,10 @@ function Wizard() {
     setActiveStep(0);
   };
 
+  const handleSchedule = () => {
+    setScheduleToastOpen(true)
+  }
+
   return (
     <div className={classes.root}>
       <header>
@@ -59,10 +66,13 @@ function Wizard() {
             <NetworkElementStep selectedElements={selectedElements} setSelectedElements={setSelectedElements} handleContinue={handleContinue} />
           ) || (activeStep === 1 &&
             <OperationTypeStep selectedOperations={selectedOperations} setSelectedOperations={setSelectedOperations} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
+          ) || (activeStep === 2 &&
+            <SummaryStep selectedOperations={selectedOperations} selectedElements={selectedElements} handleCancel={handleCancel} handleBack={handleBack} handleSchedule={handleSchedule} />
             )
           }
         </main>
       </section>
+      <ScheduleToast scheduleToastOpen={scheduleToastOpen} setScheduleToastOpen={setScheduleToastOpen} success={true} />
     </div>
   )
 }
