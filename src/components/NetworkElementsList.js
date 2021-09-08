@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setSelectedNetworkElements } from '../store/wizardSlice'
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -7,8 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Checkbox from '@material-ui/core/Checkbox'
-
-import { networkElements as rows } from '../api/data'
 
 const headCells = [
   {
@@ -67,39 +67,40 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function EnhancedTable ({ selectedElements, setSelectedElements }) {
+export default function EnhancedTable ({ networkElements, selectedNetworkElements }) {
   const classes = useStyles()
+  const dispatch = useDispatch()
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.id)
-      setSelectedElements(newSelecteds)
+      const newSelecteds = networkElements.map((n) => n.id)
+      dispatch(setSelectedNetworkElements(newSelecteds))
       return
     }
-    setSelectedElements([])
+    dispatch(setSelectedNetworkElements([]))
   }
 
   const handleClick = (event, id) => {
-    const selectedIndex = selectedElements.indexOf(id)
+    const selectedIndex = selectedNetworkElements.indexOf(id)
     let newSelected = []
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selectedElements, id)
+      newSelected = newSelected.concat(selectedNetworkElements, id)
     } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selectedElements.slice(1))
-    } else if (selectedIndex === selectedElements.length - 1) {
-      newSelected = newSelected.concat(selectedElements.slice(0, -1))
+      newSelected = newSelected.concat(selectedNetworkElements.slice(1))
+    } else if (selectedIndex === selectedNetworkElements.length - 1) {
+      newSelected = newSelected.concat(selectedNetworkElements.slice(0, -1))
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
-        selectedElements.slice(0, selectedIndex),
-        selectedElements.slice(selectedIndex + 1)
+        selectedNetworkElements.slice(0, selectedIndex),
+        selectedNetworkElements.slice(selectedIndex + 1)
       )
     }
 
-    setSelectedElements(newSelected)
+    dispatch(setSelectedNetworkElements(newSelected))
   }
 
-  const isSelected = (name) => selectedElements.indexOf(name) !== -1
+  const isSelected = (name) => selectedNetworkElements.indexOf(name) !== -1
 
   return (
     <div className={classes.root}>
@@ -113,12 +114,12 @@ export default function EnhancedTable ({ selectedElements, setSelectedElements }
         >
           <EnhancedTableHead
             classes={classes}
-            numSelected={selectedElements.length}
+            numSelected={selectedNetworkElements.length}
             onSelectAllClick={handleSelectAllClick}
-            rowCount={rows.length}
+            rowCount={networkElements.length}
           />
           <TableBody>
-            {rows
+            {networkElements
               .map((row, index) => {
                 const isItemSelected = isSelected(row.id)
                 const labelId = `enhanced-table-checkbox-${index}`

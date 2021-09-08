@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
+import { loadNetworkElements } from './store/networkElementsSlice'
+import { useSelector, useDispatch } from 'react-redux'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
@@ -28,29 +31,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 function Wizard () {
   const classes = useStyles()
-  const [activeStep, setActiveStep] = React.useState(0)
-  const [selectedElements, setSelectedElements] = React.useState([])
-  const [selectedOperations, setSelectedOperations] = useState([])
-  const [scheduleToastOpen, setScheduleToastOpen] = useState(false)
+  const activeStep = useSelector((state) => state.wizard.activeStep)
 
-  const handleContinue = () => {
-    console.log('Handle Continue')
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
-  }
+  const dispatch = useDispatch()
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1)
-  }
-
-  const handleCancel = () => {
-    setSelectedOperations([])
-    setSelectedElements([])
-    setActiveStep(0)
-  }
-
-  const handleSchedule = () => {
-    setScheduleToastOpen(true)
-  }
+  useEffect(() => {
+    dispatch(loadNetworkElements())
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -59,19 +46,19 @@ function Wizard () {
       </header>
       <section className={classes.container}>
         <nav className={classes.nav}>
-          <Sidebar activeStep={activeStep} setActiveStep={setActiveStep} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
+          <Sidebar activeStep={activeStep} />
         </nav>
         <main className={classes.main}>
           {(activeStep === 0 &&
-            <NetworkElementStep selectedElements={selectedElements} setSelectedElements={setSelectedElements} handleContinue={handleContinue} />
+            <NetworkElementStep />
           ) || (activeStep === 1 &&
-            <OperationTypeStep selectedOperations={selectedOperations} setSelectedOperations={setSelectedOperations} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
+            <OperationTypeStep />
           ) || (activeStep === 2 &&
-            <SummaryStep selectedOperations={selectedOperations} selectedElements={selectedElements} handleCancel={handleCancel} handleBack={handleBack} handleSchedule={handleSchedule} />
+            <SummaryStep />
           )}
         </main>
       </section>
-      <ScheduleToast scheduleToastOpen={scheduleToastOpen} setScheduleToastOpen={setScheduleToastOpen} success />
+      <ScheduleToast />
     </div>
   )
 }

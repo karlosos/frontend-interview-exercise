@@ -1,6 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import { useDispatch } from 'react-redux'
+
+import { schedule, back, cancel } from '../store/wizardSlice'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,26 +19,40 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function SummaryControls ({ handleSchedule, handleBack, handleCancel, isSelectedOperation }) {
+function SummaryControls () {
   const classes = useStyles()
+  const dispatch = useDispatch()
+
+  const handleScheduleClick = () => {
+    dispatch(schedule())
+  }
+
+  const handleCancelClick = () => {
+    dispatch(cancel())
+  }
+
+  const handleBackClick = () => {
+    dispatch(back())
+  }
+
   return (
     <div className={classes.root}>
       <Button
         className={classes.cancelButton}
-        onClick={handleCancel}
+        onClick={handleCancelClick}
       >
         Cancel
       </Button>
       <Button
         className={classes.cancelButton}
-        onClick={handleBack}
+        onClick={handleBackClick}
       >
         Back
       </Button>
       <Button
         variant='contained'
         color='primary'
-        onClick={handleSchedule}
+        onClick={handleScheduleClick}
       >
         Schedule
       </Button>

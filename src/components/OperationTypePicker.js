@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setSelectedOperations } from '../store/wizardSlice'
 import { makeStyles, lighten } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -59,18 +61,16 @@ function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange
   )
 }
 
-function OperationTypePicker ({ selectedOperations, setSelectedOperations }) {
+function OperationTypePicker ({ selectedOperations }) {
   const classes = useStyles()
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const operationType = e.target.name
     if (e.target.checked) {
-      setSelectedOperations([...selectedOperations, operationType])
+      dispatch(setSelectedOperations([...selectedOperations, operationType]))
     } else {
-      setSelectedOperations(selectedOperations.filter(op => op !== operationType))
-      // const index = selectedOperations.indexOf(operationType);
-      // console.log(index)
-      // setSelectedOperations(selectedOperations.splice(index, 1))
+      dispatch(setSelectedOperations(selectedOperations.filter(op => op !== operationType)))
     }
   }
   return (

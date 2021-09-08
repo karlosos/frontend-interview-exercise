@@ -1,12 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import OperationTypeControls from './OperationTypeControls'
 import OperationTypePicker from './OperationTypePicker'
 
-function OperationTypeStep ({ selectedOperations, setSelectedOperations, handleContinue, handleBack, handleCancel }) {
+function OperationTypeStep () {
+  const selectedOperations = useSelector((state) => state.wizard.selectedOperations)
   return (
     <>
-      <OperationTypePicker selectedOperations={selectedOperations} setSelectedOperations={setSelectedOperations} />
-      <OperationTypeControls handleContinue={handleContinue} handleBack={handleBack} handleCancel={handleCancel} isSelectedOperation={selectedOperations.length > 0} />
+      <OperationTypePicker selectedOperations={selectedOperations} />
+      <OperationTypeControls isSelectedOperation={selectedOperations.length > 0} />
     </>
   )
 }

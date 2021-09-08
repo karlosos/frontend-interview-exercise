@@ -1,6 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import { useDispatch } from 'react-redux'
+
+import { forward, back, cancel } from '../store/wizardSlice'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,26 +19,40 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function OperationTypeControls ({ handleContinue, handleBack, handleCancel, isSelectedOperation }) {
+function OperationTypeControls ({ isSelectedOperation }) {
   const classes = useStyles()
+  const dispatch = useDispatch()
+
+  const handleContinueClick = () => {
+    dispatch(forward())
+  }
+
+  const handleCancelClick = () => {
+    dispatch(cancel())
+  }
+
+  const handleBackClick = () => {
+    dispatch(back())
+  }
+
   return (
     <div className={classes.root}>
       <Button
         className={classes.cancelButton}
-        onClick={handleCancel}
+        onClick={handleCancelClick}
       >
         Cancel
       </Button>
       <Button
-        className={classes.cancelButton}
-        onClick={handleBack}
+        className={classes.backButton}
+        onClick={handleBackClick}
       >
         Back
       </Button>
       <Button
         variant='contained'
         color='primary'
-        onClick={handleContinue}
+        onClick={handleContinueClick}
         disabled={!isSelectedOperation}
       >
         Continue

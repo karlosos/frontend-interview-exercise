@@ -1,16 +1,18 @@
 import React from 'react'
-// import NetworkElementsList from './NetworkElementsListAlt';
+import { useSelector } from 'react-redux'
 import NetworkElementsList from './NetworkElementsList'
-// import NetworkElementsList from './NetworkElementsListOld';
 import NetworkElementSearch from './NetworkElementSearch'
 import NetworkElementControls from './NetworkElementControls'
 
-function NetworkElementStep ({ selectedElements, setSelectedElements, handleContinue }) {
+function NetworkElementStep () {
+  const networkElements = useSelector((state) => state.networkElements.data)
+  const selectedNetworkElements = useSelector((state) => state.wizard.selectedNetworkElements)
+
   return (
     <>
       <NetworkElementSearch />
-      <NetworkElementsList selectedElements={selectedElements} setSelectedElements={setSelectedElements} />
-      <NetworkElementControls handleContinue={handleContinue} isSelectedElement={selectedElements.length > 0} />
+      <NetworkElementsList networkElements={networkElements} selectedNetworkElements={selectedNetworkElements} />
+      <NetworkElementControls isSelectedElement={selectedNetworkElements.length > 0} />
     </>
 
   )

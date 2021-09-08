@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import SummaryControls from './SummaryControls'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
@@ -10,7 +11,6 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 
-import { networkElements } from '../api/data'
 import { operationTypes } from '../common/commonData'
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +28,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function SummaryStep ({ selectedOperations, selectedElements, handleCancel, handleBack, handleSchedule }) {
+function SummaryStep () {
   const classes = useStyles()
-  const selectedNetworkElementsData = networkElements.filter((el) => selectedElements.includes(el.id))
+
+  const selectedNetworkElements = useSelector((state) => state.wizard.selectedNetworkElements)
+  const selectedOperations = useSelector((state) => state.wizard.selectedOperations)
+  const selectedNetworkElementsData = useSelector((state) => state.networkElements.data.filter((el) => selectedNetworkElements.includes(el.id)))
 
   return (
     <>
@@ -71,7 +74,7 @@ function SummaryStep ({ selectedOperations, selectedElements, handleCancel, hand
           {selectedOperations.map(operation => <React.Fragment key={operation}>{operationTypes[operation].label}</React.Fragment>)}
         </Typography>
       </div>
-      <SummaryControls handleBack={handleBack} handleCancel={handleCancel} handleSchedule={handleSchedule} />
+      <SummaryControls />
     </>
   )
 }
