@@ -68,39 +68,39 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function EnhancedTable({selected, setSelected}) {
+export default function EnhancedTable({selectedElements, setSelectedElements}) {
     const classes = useStyles();
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
             const newSelecteds = rows.map((n) => n.id);
-            setSelected(newSelecteds);
+            setSelectedElements(newSelecteds);
             return;
         }
-        setSelected([]);
+        setSelectedElements([]);
     };
 
     const handleClick = (event, id) => {
-        const selectedIndex = selected.indexOf(id);
+        const selectedIndex = selectedElements.indexOf(id);
         let newSelected = [];
 
         if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, id);
+            newSelected = newSelected.concat(selectedElements, id);
         } else if (selectedIndex === 0) {
-            newSelected = newSelected.concat(selected.slice(1));
-        } else if (selectedIndex === selected.length - 1) {
-            newSelected = newSelected.concat(selected.slice(0, -1));
+            newSelected = newSelected.concat(selectedElements.slice(1));
+        } else if (selectedIndex === selectedElements.length - 1) {
+            newSelected = newSelected.concat(selectedElements.slice(0, -1));
         } else if (selectedIndex > 0) {
             newSelected = newSelected.concat(
-                selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1),
+                selectedElements.slice(0, selectedIndex),
+                selectedElements.slice(selectedIndex + 1),
             );
         }
 
-        setSelected(newSelected);
+        setSelectedElements(newSelected);
     };
 
-    const isSelected = (name) => selected.indexOf(name) !== -1;
+    const isSelected = (name) => selectedElements.indexOf(name) !== -1;
 
     return (
         <div className={classes.root}>
@@ -114,7 +114,7 @@ export default function EnhancedTable({selected, setSelected}) {
                 >
                     <EnhancedTableHead
                         classes={classes}
-                        numSelected={selected.length}
+                        numSelected={selectedElements.length}
                         onSelectAllClick={handleSelectAllClick}
                         rowCount={rows.length}
                     />

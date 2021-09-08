@@ -6,13 +6,13 @@ import NetworkElementSearch from './NetworkElementSearch'
 import NetworkElementControls from './NetworkElementControls';
 
 
-function NetworkElementStep({selected, setSelected, handleContinue}) {
+function NetworkElementStep({selectedElements, setSelectedElements, handleContinue}) {
 
     return (
         <>
             <NetworkElementSearch />
-            <NetworkElementsList selected={selected} setSelected={setSelected} />
-            <NetworkElementControls handleContinue={handleContinue} isSelectedElement={selected.length > 0} />
+            <NetworkElementsList selectedElements={selectedElements} setSelectedElements={setSelectedElements} />
+            <NetworkElementControls handleContinue={handleContinue} isSelectedElement={selectedElements.length > 0} />
         </>
 
     )

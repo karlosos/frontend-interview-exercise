@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 function Wizard() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [selected, setSelected] = React.useState([]);
+  const [selectedElements, setSelectedElements] = React.useState([]);
 
   const handleContinue = () => {
     console.log('Handle Continue')
@@ -53,9 +53,9 @@ function Wizard() {
         </nav>
         <main className={classes.main}>
           { (activeStep === 0 &&
-              <NetworkElementStep selected={selected} setSelected={setSelected} handleContinue={handleContinue} />
+              <NetworkElementStep selectedElements={selectedElements} setSelectedElements={setSelectedElements} handleContinue={handleContinue} />
           ) || (activeStep === 1 && 
-              <OperationTypeStep selected={selected} />
+              <OperationTypeStep selectedElements={selectedElements} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
             )
           }
         </main>
