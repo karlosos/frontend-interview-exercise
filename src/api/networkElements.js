@@ -79,46 +79,46 @@ const networkElements = [
     name: '5G_500%',
     swVersion: 'SW_03482_19342_102'
   },
-  {
-    id: '10',
-    ip: '10.198.165.23',
-    type: 'eNodeB',
-    dn: 'PLMN-PLMN/MRBTS-27/LNBTS-36',
-    name: '5G_500%',
-    swVersion: 'SW_03482_19342_102'
-  },
-  {
-    id: '11',
-    ip: '10.45.65.23',
-    type: 'eNodeB',
-    dn: 'PLMN-PLMN/MRBTS-9/LNBTS-11',
-    name: '5G_500%',
-    swVersion: 'SW_03482_19342_102'
-  },
-  {
-    id: '12',
-    ip: '10.23.41.11',
-    type: 'eNodeB',
-    dn: 'PLMN-PLMN/MRBTS-58/LNBTS-67',
-    name: '5G_500%',
-    swVersion: 'SW_03482_19342_102'
-  },
-  {
-    id: '13',
-    ip: '10.46.74.23',
-    type: 'eNodeB',
-    dn: 'PLMN-PLMN/MRBTS-9/LNBTS-8795',
-    name: '5G_500%',
-    swVersion: 'SW_03482_19342_102'
-  },
-  {
-    id: '14',
-    ip: '10.98.109.100',
-    type: 'eNodeB',
-    dn: 'PLMN-PLMN/MRBTS-101/LNBTS-100',
-    name: '5G_500%',
-    swVersion: 'SW_03482_19342_102'
-  }
+  // {
+  //   id: '10',
+  //   ip: '10.198.165.23',
+  //   type: 'eNodeB',
+  //   dn: 'PLMN-PLMN/MRBTS-27/LNBTS-36',
+  //   name: '5G_500%',
+  //   swVersion: 'SW_03482_19342_102'
+  // },
+  // {
+  //   id: '11',
+  //   ip: '10.45.65.23',
+  //   type: 'eNodeB',
+  //   dn: 'PLMN-PLMN/MRBTS-9/LNBTS-11',
+  //   name: '5G_500%',
+  //   swVersion: 'SW_03482_19342_102'
+  // },
+  // {
+  //   id: '12',
+  //   ip: '10.23.41.11',
+  //   type: 'eNodeB',
+  //   dn: 'PLMN-PLMN/MRBTS-58/LNBTS-67',
+  //   name: '5G_500%',
+  //   swVersion: 'SW_03482_19342_102'
+  // },
+  // {
+  //   id: '13',
+  //   ip: '10.46.74.23',
+  //   type: 'eNodeB',
+  //   dn: 'PLMN-PLMN/MRBTS-9/LNBTS-8795',
+  //   name: '5G_500%',
+  //   swVersion: 'SW_03482_19342_102'
+  // },
+  // {
+  //   id: '14',
+  //   ip: '10.98.109.100',
+  //   type: 'eNodeB',
+  //   dn: 'PLMN-PLMN/MRBTS-101/LNBTS-100',
+  //   name: '5G_500%',
+  //   swVersion: 'SW_03482_19342_102'
+  // }
 ]
 
 export { networkElements }

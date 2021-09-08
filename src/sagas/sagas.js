@@ -1,5 +1,5 @@
 import { put, takeEvery, all, call, select } from 'redux-saga/effects'
-import { schedule, setToast } from '../store/wizardSlice'
+import { schedule, setScheduleSuccess, setToast } from '../store/wizardSlice'
 import { requestPutSchedule } from '../api/scheduleLogger'
 
 function * watchSchedule () {
@@ -21,6 +21,7 @@ function * handleSchedule () {
       }
     )
     yield put(setToast({ open: true, success: true }))
+    yield put(setScheduleSuccess())
   } catch (e) {
     console.error(e)
     yield put(setToast({ open: true, success: false }))
