@@ -7,11 +7,9 @@ import Wizard from './Wizard'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Wizard />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Wizard />
+  </Provider>,
   document.getElementById('root')
 )
 

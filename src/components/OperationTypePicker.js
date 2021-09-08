@@ -5,7 +5,7 @@ import { makeStyles, lighten } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox'
 
-import { operationTypes } from '../common/commonData'
+import { operationTypes } from '../common/constants'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +44,7 @@ function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange
         <Typography variant='h5'>
           {operationTypes[operationType].label}
         </Typography>
-        <Typography variant='p'>
+        <Typography>
           {operationTypes[operationType].description}
         </Typography>
       </div>

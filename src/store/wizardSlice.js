@@ -24,7 +24,7 @@ export const wizardSlice = createSlice({
       state.selectedOperations = []
       state.activeStep = 0
     },
-    schedule: () => {
+    schedule: (state, action) => {
       // watched by watchSchedule saga
     },
     forward: (state) => {

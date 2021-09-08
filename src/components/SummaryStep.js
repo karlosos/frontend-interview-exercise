@@ -11,7 +11,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 
-import { operationTypes } from '../common/commonData'
+import { operationTypes } from '../common/constants'
 
 const useStyles = makeStyles((theme) => ({
   summary: {
@@ -70,8 +70,8 @@ function SummaryStep () {
         <Typography variant='h5' className={classes.sectionHeader}>
           Operation Type
         </Typography>
-        <Typography variant='h7'>
-          {selectedOperations.map(operation => <React.Fragment key={operation}>{operationTypes[operation].label}</React.Fragment>)}
+        <Typography>
+          {selectedOperations.map(operation => <React.Fragment key={operation}>{operationTypes[operation].label} <br /></React.Fragment>)}
         </Typography>
       </div>
       <SummaryControls />
