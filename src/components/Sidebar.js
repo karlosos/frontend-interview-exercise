@@ -24,7 +24,7 @@ function getSteps() {
         },
         {
             label: 'Operation Type',
-            description: 'At leas one Operation Type shall be selected'
+            description: 'At least one Operation Type shall be selected'
         },
         {
             label: 'Summary',

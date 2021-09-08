@@ -28,6 +28,7 @@ function Wizard() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [selectedElements, setSelectedElements] = React.useState([]);
+  const [selectedOperations, setSelectedOperations] = useState([])
 
   const handleContinue = () => {
     console.log('Handle Continue')
@@ -39,6 +40,8 @@ function Wizard() {
   };
 
   const handleCancel = () => {
+    setSelectedOperations([])
+    setSelectedElements([])
     setActiveStep(0);
   };
 
@@ -52,10 +55,10 @@ function Wizard() {
           <Sidebar activeStep={activeStep} setActiveStep={setActiveStep} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
         </nav>
         <main className={classes.main}>
-          { (activeStep === 0 &&
-              <NetworkElementStep selectedElements={selectedElements} setSelectedElements={setSelectedElements} handleContinue={handleContinue} />
-          ) || (activeStep === 1 && 
-              <OperationTypeStep selectedElements={selectedElements} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
+          {(activeStep === 0 &&
+            <NetworkElementStep selectedElements={selectedElements} setSelectedElements={setSelectedElements} handleContinue={handleContinue} />
+          ) || (activeStep === 1 &&
+            <OperationTypeStep selectedOperations={selectedOperations} setSelectedOperations={setSelectedOperations} handleContinue={handleContinue} handleCancel={handleCancel} handleBack={handleBack} />
             )
           }
         </main>
