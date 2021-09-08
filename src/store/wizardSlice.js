@@ -4,7 +4,7 @@ export const wizardSlice = createSlice({
   name: 'wizard',
   initialState: {
     selectedNetworkElements: [],
-    selectedOperations: [],
+    selectedOperation: undefined,
     activeStep: 0,
     toast: {
       open: false,
@@ -16,13 +16,13 @@ export const wizardSlice = createSlice({
     setSelectedNetworkElements: (state, action) => {
       state.selectedNetworkElements = action.payload
     },
-    setSelectedOperations: (state, action) => {
-      state.selectedOperations = action.payload
+    setSelectedOperation: (state, action) => {
+      state.selectedOperation = action.payload
     },
     cancel: (state) => {
       // dispatch(loadNetworkElements())
       state.selectedNetworkElements = []
-      state.selectedOperations = []
+      state.selectedOperation = undefined
       state.activeStep = 0
       state.scheduleSent = false
     },
@@ -49,5 +49,5 @@ export const wizardSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setSelectedNetworkElements, setSelectedOperations, cancel, forward, back, schedule, setScheduleSuccess, setToastOpen, setToast } = wizardSlice.actions
+export const { setSelectedNetworkElements, setSelectedOperation, cancel, forward, back, schedule, setScheduleSuccess, setToastOpen, setToast } = wizardSlice.actions
 export default wizardSlice.reducer

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setSelectedOperations } from '../store/wizardSlice'
+import { setSelectedOperation } from '../store/wizardSlice'
 import { makeStyles, lighten } from '@material-ui/core/styles'
 import { Paper, Typography } from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -61,22 +61,22 @@ function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange
   )
 }
 
-function OperationTypePicker ({ selectedOperations }) {
+function OperationTypePicker ({ selectedOperation }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const operationType = e.target.name
     if (e.target.checked) {
-      dispatch(setSelectedOperations([...selectedOperations, operationType]))
+      dispatch(setSelectedOperation(operationType))
     } else {
-      dispatch(setSelectedOperations(selectedOperations.filter(op => op !== operationType)))
+      dispatch(setSelectedOperation(undefined))
     }
   }
   return (
     <div className={classes.root}>
-      <OperationTypeCheckbox operationType='update_software' checked={selectedOperations.indexOf('update_software') >= 0} handleChange={handleChange} />
-      <OperationTypeCheckbox operationType='downgrade_software' checked={selectedOperations.indexOf('downgrade_software') >= 0} handleChange={handleChange} disabled />
+      <OperationTypeCheckbox operationType='update_software' checked={selectedOperation === 'update_software'} handleChange={handleChange} />
+      <OperationTypeCheckbox operationType='downgrade_software' checked={selectedOperation === 'downgrade_software'} handleChange={handleChange} disabled />
     </div>
   )
 }

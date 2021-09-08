@@ -32,7 +32,7 @@ function SummaryStep () {
   const classes = useStyles()
 
   const selectedNetworkElements = useSelector((state) => state.wizard.selectedNetworkElements)
-  const selectedOperations = useSelector((state) => state.wizard.selectedOperations)
+  const selectedOperation = useSelector((state) => state.wizard.selectedOperation)
   const selectedNetworkElementsData = useSelector((state) => state.networkElements.data.filter((el) => selectedNetworkElements.includes(el.id)))
 
   return (
@@ -71,7 +71,7 @@ function SummaryStep () {
           Operation Type
         </Typography>
         <Typography>
-          {selectedOperations.map(operation => <React.Fragment key={operation}>{operationTypes[operation].label} <br /></React.Fragment>)}
+          {operationTypes[selectedOperation].label}
         </Typography>
       </div>
       <SummaryControls />

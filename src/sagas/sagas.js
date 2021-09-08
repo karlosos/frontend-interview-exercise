@@ -11,12 +11,12 @@ function * handleSchedule () {
     const networkElements = state.networkElements.data
     return networkElements.filter(el => state.wizard.selectedNetworkElements.includes(el.id))
   })
-  const selectedOperations = yield select(state => state.wizard.selectedOperations)
+  const selectedOperation = yield select(state => state.wizard.selectedOperation)
   try {
     yield call(requestPutSchedule,
       {
         selectedNetworkElements: selectedNetworkElements,
-        selectedOperations: selectedOperations,
+        selectedOperation: selectedOperation,
         date: Date.now()
       }
     )

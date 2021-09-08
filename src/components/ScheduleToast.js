@@ -26,7 +26,7 @@ function ScheduleToast ({ setScheduleToastOpen }) {
   if (success) {
     toast = (
       <Alert onClose={handleClose} severity='success'>
-        Scheduled Operation!
+        Successfully scheduled the operation!
       </Alert>
     )
   } else {

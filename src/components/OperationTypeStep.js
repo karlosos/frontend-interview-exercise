@@ -4,11 +4,11 @@ import OperationTypeControls from './OperationTypeControls'
 import OperationTypePicker from './OperationTypePicker'
 
 function OperationTypeStep () {
-  const selectedOperations = useSelector((state) => state.wizard.selectedOperations)
+  const selectedOperation = useSelector((state) => state.wizard.selectedOperation)
   return (
     <>
-      <OperationTypePicker selectedOperations={selectedOperations} />
-      <OperationTypeControls isSelectedOperation={selectedOperations.length > 0} />
+      <OperationTypePicker selectedOperation={selectedOperation} />
+      <OperationTypeControls isSelectedOperation={selectedOperation} />
     </>
   )
 }
