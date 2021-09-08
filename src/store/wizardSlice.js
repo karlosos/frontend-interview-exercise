@@ -10,7 +10,7 @@ export const wizardSlice = createSlice({
       open: false,
       success: undefined
     },
-    scheduleSent: false,
+    scheduleSent: false
   },
   reducers: {
     setSelectedNetworkElements: (state, action) => {
@@ -44,7 +44,7 @@ export const wizardSlice = createSlice({
     },
     setToast: (state, action) => {
       state.toast = action.payload
-    },
+    }
   }
 })
 

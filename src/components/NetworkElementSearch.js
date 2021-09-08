@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: 'auto'
     },
-    borderBottom: `1px solid ${theme.palette.grey[300]}`,
-    marginBottom: theme.spacing(1)
+    borderBottom: `1px solid ${theme.palette.grey[300]}`
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -38,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`
   }
 }))

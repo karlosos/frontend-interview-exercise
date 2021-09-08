@@ -78,7 +78,7 @@ const networkElements = [
     dn: 'N/A',
     name: '5G_500%',
     swVersion: 'SW_03482_19342_102'
-  },
+  }
   // {
   //   id: '10',
   //   ip: '10.198.165.23',

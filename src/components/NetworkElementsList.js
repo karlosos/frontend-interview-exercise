@@ -55,7 +55,7 @@ function EnhancedTableHead (props) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flex: 1,
+    flex: 1
   },
   tableContainer: {
   },
