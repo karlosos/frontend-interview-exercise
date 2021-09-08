@@ -1,5 +1,6 @@
 {
   "name": "frontend-interview-exercise",
+  "homepage": "https://karlosos.github.io/frontend-interview-exercise",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

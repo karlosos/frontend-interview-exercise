@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+![vscode-portfolio banner](./docs/mockup.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+[![Code style: standardjs](https://img.shields.io/badge/code%20style-standardjs-F3DF49.svg)](https://standardjs.com/)
+![Material UI](https://img.shields.io/badge/material_ui-%230081CB.svg?logo=material-ui&logoColor=white)
+[![Build and Deploy](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml)
+![Coverage 66%](https://img.shields.io/badge/coverage-66%25-yellow)
+</div>
 
-In the project directory, you can run:
+***
 
-### `npm start`
+<h4 align="center">Frontend Engineer Interview Exercise</h4>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#development">Development</a> •
+  <a href="#deployment">Deployment</a>
+</p>
 
-### `npm test`
+<p align="center">
+<table>
+<tbody>
+<td align="center">
+<img width="2000" height="0"><br>
+Website: <b><a href="https://karlosos.github.io/frontend-interview-exercise">karlosos.github.io/frontend-interview-exercise 🌐</a></b><br>
+<img width="2000" height="0">
+</td>
+</tbody>
+</table>
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About
 
-### `npm run build`
+Frontend Engineer interview exercise. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Simplified tasks requirements:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Wizard with 3 steps.
+2. User can select multiple network elements and one operation type.
+3. Data should be saved in Firebase database.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Technical requirements:
 
-### `npm run eject`
+1. Use React
+1. Manage state with Redux
+1. Manage side effects with redux-saga
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Install dependencies with `npm install`.
+1. Run desktop application with `npm run start` or react app with `npm run react-start`.
+1. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Code coverage can be checked using `npm run test:coverage`. Currently it is about ??%, mostly integration tests.
 
-## Learn More
+Run tests with `npm test` which launches the test runner in the interactive watch mode.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Application is automatically deployed to GithubPages using `.github/workflows/main.yml` workflow.

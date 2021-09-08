@@ -35,10 +35,10 @@ function Wizard () {
   const activeStep = useSelector((state) => state.wizard.activeStep)
 
   const dispatch = useDispatch()
-
+  
   useEffect(() => {
     dispatch(loadNetworkElements())
-  }, [])
+  })
 
   return (
     <MuiThemeProvider theme={theme}>
