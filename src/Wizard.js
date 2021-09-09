@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+
 import { loadNetworkElements } from './store/networkElementsSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { MuiThemeProvider, makeStyles } from '@material-ui/core/styles'
@@ -30,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column'
   }
 }))
+
 function Wizard () {
   const classes = useStyles()
-  const activeStep = useSelector((state) => state.wizard.activeStep)
-
   const dispatch = useDispatch()
+  const activeStep = useSelector((state) => state.wizard.activeStep)
 
   useEffect(() => {
     dispatch(loadNetworkElements())

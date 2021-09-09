@@ -64,6 +64,8 @@ Technical requirements:
 
 ### Tests
 
+[![codecov](https://codecov.io/gh/karlosos/frontend-interview-exercise/branch/main/graph/badge.svg?token=ORhAq8yE6A)](https://codecov.io/gh/karlosos/frontend-interview-exercise)
+
 Code coverage can be checked using `npm test -- --coverage --watchAll`.
 
 Run tests with `npm test` which launches the test runner in the interactive watch mode.

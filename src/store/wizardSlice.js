@@ -20,7 +20,6 @@ export const wizardSlice = createSlice({
       state.selectedOperation = action.payload
     },
     cancel: (state) => {
-      // dispatch(loadNetworkElements())
       state.selectedNetworkElements = []
       state.selectedOperation = undefined
       state.activeStep = 0

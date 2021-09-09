@@ -1,7 +1,9 @@
 import React from 'react'
+
 import axios from 'axios'
 import { render, fireEvent, screen } from './test-utils'
 import { within } from '@testing-library/react'
+
 import Wizard from '../Wizard'
 
 jest.mock('axios')

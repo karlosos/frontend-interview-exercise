@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
@@ -8,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
+
 import { operationTypes } from '../common/constants'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SummaryInfo ({ selectedNetworkElementsData, selectedOperation }) {
   const classes = useStyles()
+  
   return (
     <div className={classes.summary}>
       <Typography variant='h5' className={classes.sectionHeader}>

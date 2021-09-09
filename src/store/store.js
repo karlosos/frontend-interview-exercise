@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
+
 import networkElementsReducer from './networkElementsSlice'
 import wizardReducer from './wizardSlice'
 import rootSaga from '../sagas/sagas.js'

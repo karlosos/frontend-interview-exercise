@@ -1,8 +1,10 @@
 import React from 'react'
-import { forward } from '../store/wizardSlice'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import { useDispatch } from 'react-redux'
+
+import { forward } from '../store/wizardSlice'
 
 const useStyles = makeStyles((theme) => ({
   root: {

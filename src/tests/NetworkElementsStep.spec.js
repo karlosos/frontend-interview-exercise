@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { render, fireEvent, screen } from './test-utils'
-import NetworkElementsStep from '../components/NetworkElementStep'
 import { waitFor } from '@testing-library/react'
+
+import NetworkElementsStep from '../components/NetworkElementStep'
 
 const networkElements = {
   data: [{

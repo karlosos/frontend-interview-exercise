@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useDispatch } from 'react-redux'
 import { setSelectedOperation } from '../store/wizardSlice'
 import { makeStyles, lighten } from '@material-ui/core/styles'
@@ -56,7 +57,6 @@ function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange
         <Checkbox
           disabled={disabled}
           checked={checked}
-          // onChange={() => handleChange(!checked, operationType)}
           name={`${operationType}`}
           color='primary'
         />

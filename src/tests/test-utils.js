@@ -1,15 +1,15 @@
 // https://redux.js.org/usage/writing-tests#components
 
 import React from 'react'
+
 import { render as rtlRender } from '@testing-library/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from '../sagas/sagas.js'
 
 import wizardReducer from '../store/wizardSlice'
 import networkElementsReducer from '../store/networkElementsSlice'
-
-import createSagaMiddleware from 'redux-saga'
-import rootSaga from '../sagas/sagas.js'
 
 function render (
   ui, {

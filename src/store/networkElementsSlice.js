@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import { networkElements } from '../api/networkElements'
 
 export const networkElementsSlice = createSlice({
@@ -9,6 +10,7 @@ export const networkElementsSlice = createSlice({
   reducers: {
     loadNetworkElements: (state) => {
       state.data = networkElements
+      // when necessary this should be handled by redux-saga and fetching from API
     },
     clearNetworkElements: (state) => {
       state.data = []
