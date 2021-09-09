@@ -35,11 +35,11 @@ Website: <b><a href="https://karlosos.github.io/frontend-interview-exercise">kar
 
 Frontend Engineer interview exercise. 
 
-Simplified tasks requirements:
+Simplified task requirements:
 
-1. Wizard with 3 steps.
+1. Create a wizard with 3 steps.
 2. User can select multiple network elements and one operation type.
-3. Data should be saved in Firebase database.
+3. Data should be saved in the Firebase database.
 
 Technical requirements:
 
@@ -47,10 +47,19 @@ Technical requirements:
 1. Manage state with Redux
 1. Manage side effects with redux-saga
 
+### Technical decisions
+
+**File structure**: I've opted for grouping by file type and [avoided nesting](https://reactjs.org/docs/faq-structure.html) as it's relatively simple app. Later I would make folders for each container component, like `NetworkElementStep`, `OperationTypeStep`, `SummaryStep`.
+
+### Used tools 
+
+- Node 14.16.1
+- React 17.0.2
+
 ## Development
 
 1. Install dependencies with `npm install`.
-1. Run desktop application with `npm run start` or react app with `npm run react-start`.
+1. Run application with `npm run start`. 
 1. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Tests
