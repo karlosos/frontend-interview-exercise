@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 750
+  },
+  row: {
+    cursor: 'pointer'
   }
 }))
 
@@ -127,6 +130,7 @@ export default function EnhancedTable ({ networkElements, selectedNetworkElement
 
                 return (
                   <TableRow
+                    className={classes.row}
                     hover
                     onClick={(event) => handleClick(event, row.id)}
                     role='checkbox'
@@ -139,6 +143,7 @@ export default function EnhancedTable ({ networkElements, selectedNetworkElement
                       <Checkbox
                         checked={isItemSelected}
                         inputProps={{ 'aria-labelledby': labelId }}
+                        className='checkbox'
                       />
                     </TableCell>
                     <TableCell component='th' id={labelId} scope='row' padding='none'>

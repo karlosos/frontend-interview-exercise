@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
       }
       return ''
     },
-    color: props => props.disabled ? theme.palette.grey[400] : ''
+    color: props => props.disabled ? theme.palette.grey[400] : '',
+    cursor: props => !props.disabled ? 'pointer' : 'auto'
   },
   paper: {
     width: '100%',
@@ -39,7 +40,10 @@ const useStyles = makeStyles((theme) => ({
 function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange }) {
   const classes = useStyles({ checked, disabled })
   return (
-    <Paper className={classes.operationType}>
+    <Paper
+      className={classes.operationType}
+      onClick={!disabled ? () => handleChange(!checked, operationType) : undefined}
+    >
       <div>
         <Typography variant='h5'>
           {operationTypes[operationType].label}
@@ -52,7 +56,7 @@ function OperationTypeCheckbox ({ operationType, checked, disabled, handleChange
         <Checkbox
           disabled={disabled}
           checked={checked}
-          onChange={handleChange}
+          // onChange={() => handleChange(!checked, operationType)}
           name={`${operationType}`}
           color='primary'
         />
@@ -65,9 +69,8 @@ function OperationTypePicker ({ selectedOperation }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const handleChange = (e) => {
-    const operationType = e.target.name
-    if (e.target.checked) {
+  const handleChange = (checked, operationType) => {
+    if (checked) {
       dispatch(setSelectedOperation(operationType))
     } else {
       dispatch(setSelectedOperation(undefined))
