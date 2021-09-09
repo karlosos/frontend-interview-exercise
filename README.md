@@ -2,10 +2,10 @@
 
 <div align="center">
 
+
 [![Code style: standardjs](https://img.shields.io/badge/code%20style-standardjs-F3DF49.svg)](https://standardjs.com/)
 ![Material UI](https://img.shields.io/badge/material_ui-%230081CB.svg?logo=material-ui&logoColor=white)
 [![Build and Deploy](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml)
-![Coverage 66%](https://img.shields.io/badge/coverage-66%25-yellow)
 </div>
 
 ***
@@ -55,7 +55,7 @@ Technical requirements:
 
 ### Tests
 
-Code coverage can be checked using `npm run test:coverage`. Currently it is about ??%, mostly integration tests.
+Code coverage can be checked using `npm test -- --coverage --watchAll`.
 
 Run tests with `npm test` which launches the test runner in the interactive watch mode.
 
