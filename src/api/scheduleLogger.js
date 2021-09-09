@@ -1,13 +1,12 @@
 import axios from 'axios'
 
 function requestPutSchedule (payload) {
-  console.log('There is something!!!!!!!!')
-  console.log('request put schedule', payload)
-  return axios.request({
+  const request = axios.request({
     method: 'post',
     url: 'https://frontend-interview-f788d-default-rtdb.europe-west1.firebasedatabase.app/scheduledNetworkElementsOperations.json',
     data: payload
   })
+  return request
 }
 
 export { requestPutSchedule }

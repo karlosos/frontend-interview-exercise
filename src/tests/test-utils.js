@@ -20,7 +20,7 @@ function render (
         wizard: wizardReducer,
         networkElements: networkElementsReducer
       },
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
       preloadedState
     }),
     ...renderOptions
