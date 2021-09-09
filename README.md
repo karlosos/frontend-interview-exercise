@@ -2,7 +2,7 @@
 
 <div align="center">
 
-
+[![codecov](https://codecov.io/gh/karlosos/frontend-interview-exercise/branch/main/graph/badge.svg?token=ORhAq8yE6A)](https://codecov.io/gh/karlosos/frontend-interview-exercise)
 [![Code style: standardjs](https://img.shields.io/badge/code%20style-standardjs-F3DF49.svg)](https://standardjs.com/)
 ![Material UI](https://img.shields.io/badge/material_ui-%230081CB.svg?logo=material-ui&logoColor=white)
 [![Build and Deploy](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml/badge.svg)](https://github.com/karlosos/frontend-interview-exercise/actions/workflows/main.yml)
