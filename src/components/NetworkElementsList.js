@@ -85,24 +85,22 @@ export default function EnhancedTable ({ networkElements, selectedNetworkElement
     dispatch(setSelectedNetworkElements([]))
   }
 
-  const handleClick = (event, id) => {
-    const selectedIndex = selectedNetworkElements.indexOf(id)
-    let newSelected = []
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selectedNetworkElements, id)
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selectedNetworkElements.slice(1))
-    } else if (selectedIndex === selectedNetworkElements.length - 1) {
-      newSelected = newSelected.concat(selectedNetworkElements.slice(0, -1))
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selectedNetworkElements.slice(0, selectedIndex),
-        selectedNetworkElements.slice(selectedIndex + 1)
-      )
-    }
-
+  const handleClick = (event, selectedNetworkElementId) => {
+    const newSelected = updateSelectedNetworkElementsList(selectedNetworkElementId)
     dispatch(setSelectedNetworkElements(newSelected))
+  }
+
+  const updateSelectedNetworkElementsList = (selectedNetworkElementId) => {
+    const selectedIndex = selectedNetworkElements.indexOf(selectedNetworkElementId)
+    let newSelected = [...selectedNetworkElements]
+    if (selectedIndex === -1) {
+      // Add if not in list
+      newSelected.push(selectedNetworkElementId)
+    } else {
+      // Remove if element was already in list
+      newSelected = newSelected.filter((el) => el !== selectedNetworkElementId)
+    }
+    return newSelected
   }
 
   const isSelected = (name) => selectedNetworkElements.indexOf(name) !== -1
